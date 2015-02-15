@@ -64,6 +64,18 @@ img {
     max-width: 800px;
     padding: 20px;
     padding: 2rem;
+    min-height: 100%;
+}
+
+.message {
+    text-align: center;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    -o-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
 }
 
 #chart {
@@ -71,9 +83,29 @@ img {
     margin: 0 auto;
 }
 
-.legend {
+.controls {
+    text-align: center;
     padding: 50px 0 0 0;
     padding: 5rem 0 0 0;
+}
+
+button {
+    background: #fff;
+    border: none;
+}
+
+button:hover {
+    background: rgba(255, 255, 255, 0.8);
+    border: none;
+}
+
+.controls, .legend {
+    padding: 50px 0 0 0;
+    padding: 5rem 0 0 0;
+}
+
+.legend table {
+    margin: 0;
 }
 
 .legend table td, .legend table th {
@@ -89,8 +121,9 @@ img {
     height: 30px;
 }
 
-@media all and (max-width: 420px) {
+@media all and (max-width: 450px) {
     .legend table {
-        font-size: 92%;
+        font-size: 12px;
+        font-size: 1.2rem;
     }
 }

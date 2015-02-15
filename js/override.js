@@ -17,7 +17,19 @@ var deleteURL = function(id) {
 };
 
 $(function() {
+    $('.controls #clear').on('click', function() {
+        chrome.storage.local.remove('trackr');
+        location.reload();
+    });
+
     chrome.storage.local.get('trackr', function(data) {
+        if ($.isEmptyObject(data)) {
+            var $container = $('.container');
+            $container.empty();
+            $container.append('<div class="message"><h1>No URLs are tracked yet!</h1></div>');
+            return;
+        }
+
         var chartData = [];
         var options = {
             animation: false,
