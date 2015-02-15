@@ -63,3 +63,24 @@ img {
     padding: 20px;
     padding: 2rem;
 }
+
+#chart {
+    display: block;
+    margin: 0 auto;
+}
+
+.legend {
+    padding: 50px 0 0 0;
+    padding: 5rem 0 0 0;
+}
+
+.legend table td, .legend table th {
+    padding: 15px;
+    padding: 1.5rem;
+}
+
+.legend .color-box {
+    display: block;
+    width: 30px;
+    height: 30px;
+}

@@ -20,8 +20,9 @@ $(function() {
     chrome.storage.local.get('trackr', function(data) {
         var chartData = [];
         var options = {
+            animation: false,
             responsive: true,
-            legendTemplate: '<ul class=\"<%=name.toLowerCase()%>-legend\"><% for (var i=0; i<segments.length; i++){%><li><span class=\"label\" style=\"background-color:<%=segments[i].fillColor%>\"><%if(segments[i].label){%><%=segments[i].label%><%}%></span> <span class=\"value\" style=\"background-color:<%=segments[i].fillColor%>\"><%if(segments[i].value){%><%=segments[i].value%><%}%></span></li><%}%></ul>'
+            legendTemplate: '<table class=\"u-full-width <%=name.toLowerCase()%>-legend\"><thead><tr><th>Color</th><th>Title</th><th>Time (minutes)</th></tr></thead><% for (var i=0; i<segments.length; i++){%><tr><td><span class=\"color-box\" style=\"background-color:<%=segments[i].fillColor%>\"></span></td><td class=\"label\"><%if(segments[i].label){%><%=segments[i].label%><%}%></td><td class=\"value\"><%if(segments[i].value){%><%=segments[i].value%><%}%></td></tr><%}%></table>'
         };
         var ctx = $('#chart').get(0).getContext('2d');
 
