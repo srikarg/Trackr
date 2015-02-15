@@ -15,6 +15,8 @@ html {
 body {
     font: 300 1.8rem/1.6875 sans-serif;
     font: 300 18px/1.6875 sans-serif;
+    background: #222;
+    color: #fff;
 }
 
 h1, h2, h3, h4, h5, h6, ul, ol, blockquote, p {
@@ -75,12 +77,20 @@ img {
 }
 
 .legend table td, .legend table th {
+    text-align: center;
     padding: 15px;
     padding: 1.5rem;
 }
 
 .legend .color-box {
     display: block;
+    margin: 0 auto;
     width: 30px;
     height: 30px;
+}
+
+@media all and (max-width: 420px) {
+    .legend table {
+        font-size: 92%;
+    }
 }

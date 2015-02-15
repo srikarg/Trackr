@@ -22,6 +22,7 @@ $(function() {
         var options = {
             animation: false,
             responsive: true,
+            segmentShowStroke: false,
             legendTemplate: '<table class=\"u-full-width <%=name.toLowerCase()%>-legend\"><thead><tr><th>Color</th><th>Title</th><th>Time (minutes)</th></tr></thead><% for (var i=0; i<segments.length; i++){%><tr><td><span class=\"color-box\" style=\"background-color:<%=segments[i].fillColor%>\"></span></td><td class=\"label\"><%if(segments[i].label){%><%=segments[i].label%><%}%></td><td class=\"value\"><%if(segments[i].value){%><%=segments[i].value%><%}%></td></tr><%}%></table>'
         };
         var ctx = $('#chart').get(0).getContext('2d');
