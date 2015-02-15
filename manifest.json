@@ -15,6 +15,7 @@
         ],
         "persistent": true
     },
+    "content_security_policy": "script-src 'self' 'unsafe-eval'; object-src 'self'",
     "options_page": "src/options_custom/index.html",
     "chrome_url_overrides": {
         "newtab": "src/override/override.html"
@@ -24,6 +25,6 @@
         "tabs",
         "*://*/*",
         "storage",
-        "alarms"
+        "unlimitedStorage"
     ]
 }

@@ -1,9 +1,9 @@
 var interval = null;
-var updateTime = 5000; // In milliseconds
+var updateTime = 5000;
 var currentTabInfo = {};
 
 var getURL = function(url) {
-    chrome.storage.sync.get('trackr', function(data) {
+    chrome.storage.local.get('trackr', function(data) {
         var index, found;
 
         if ($.isEmptyObject(data)) {
@@ -17,7 +17,7 @@ var getURL = function(url) {
                     'time': currentTabInfo.time
                 }]
             };
-            chrome.storage.sync.set(obj);
+            chrome.storage.local.set(obj);
             return;
         }
 
@@ -46,13 +46,13 @@ var getURL = function(url) {
             });
         }
 
-        chrome.storage.sync.set(data);
+        chrome.storage.local.set(data);
     });
 };
 
 var updateURL = function() {
-    console.log('CURRENT TAB URL: ' + currentTabInfo.title);
-    chrome.storage.sync.get('trackr', function(data) {
+    // console.log('CURRENT TAB URL: ' + currentTabInfo.title);
+    chrome.storage.local.get('trackr', function(data) {
         var index;
         $.each(data.trackr, function(i, v) {
             if (v.title === currentTabInfo.title) {
@@ -62,7 +62,7 @@ var updateURL = function() {
         });
         data.trackr[index].time = data.trackr[index].time + 1;
 
-        chrome.storage.sync.set(data);
+        chrome.storage.local.set(data);
     });
 };
 
@@ -71,10 +71,6 @@ var getCurrentTab = function() {
         currentWindow: true,
         active: true
     }, function(tabs) {
-        // chrome.alarms.clear('Track Tab');
-        // chrome.alarms.create('Track Tab', {
-        //     periodInMinutes: 1
-        // });
         getURL(tabs[0].url);
         clearInterval(interval);
         interval = null;
@@ -88,8 +84,3 @@ getCurrentTab();
 
 chrome.tabs.onUpdated.addListener(getCurrentTab);
 chrome.tabs.onActivated.addListener(getCurrentTab);
-
-// chrome.alarms.onAlarm.addListener(function() {
-//     console.log('ALARM FIRED');
-//     updateURL();
-// });
