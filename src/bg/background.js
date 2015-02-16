@@ -85,7 +85,9 @@ var getCurrentTab = function() {
         }, updateTime);
     });
 };
-
+chrome.browserAction.onClicked.addListener(function(tab) {
+  chrome.storage.local.clear();
+});
 getCurrentTab();
 
 chrome.tabs.onUpdated.addListener(getCurrentTab);
