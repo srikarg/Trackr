@@ -58,5 +58,13 @@ $(function() {
         var legend = chart.generateLegend();
 
         $('.legend').html(legend);
+        $('.legend table').tablesorter({
+            sortList: [[2, 1]],
+            headers: {
+                0: {
+                    sorter: false
+                }
+            }
+        });
     });
 });
