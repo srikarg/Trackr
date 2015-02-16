@@ -1,6 +1,7 @@
 var interval = null;
 var updateTime = 5000;
 var currentTabInfo = {};
+var userActive = true;
 
 var getURL = function(url) {
     chrome.storage.local.get('trackr', function(data) {
@@ -51,20 +52,25 @@ var getURL = function(url) {
 };
 
 var updateURL = function() {
-    // console.log('CURRENT TAB URL: ' + currentTabInfo.title);
-    chrome.storage.local.get('trackr', function(data) {
-        var index;
-        $.each(data.trackr, function(i, v) {
-            if (v.title === currentTabInfo.title) {
-                index = i;
-                return false;
-            }
-        });
-        data.trackr[index].time = data.trackr[index].time + 1;
+    if (userActive) {
+        chrome.storage.local.get('trackr', function(data) {
+            var index;
+            $.each(data.trackr, function(i, v) {
+                if (v.title === currentTabInfo.title) {
+                    index = i;
+                    return false;
+                }
+            });
+            data.trackr[index].time = data.trackr[index].time + 1;
 
-        chrome.storage.local.set(data);
-    });
+            chrome.storage.local.set(data);
+        });
+    }
 };
+
+chrome.runtime.onMessage.addListener(function(message, sender, sendResponse) {
+    userActive = message.userActive;
+});
 
 var getCurrentTab = function() {
     chrome.tabs.query({

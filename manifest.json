@@ -1,6 +1,6 @@
 {
     "name": "Trackr",
-    "version": "0.7",
+    "version": "0.8",
     "manifest_version": 2,
     "description": "Track the time you spend on various websites with beautiful graphs on the new tab page!",
     "icons": {
@@ -19,6 +19,12 @@
     "chrome_url_overrides": {
         "newtab": "src/override/override.html"
     },
+    "content_scripts": [
+        {
+            "js": ["js/jquery/jquery.min.js", "src/contentscript/contentscript.js"],
+            "matches": ["*://*/*"]
+        }
+    ],
     "permissions": [
         "history",
         "tabs",
