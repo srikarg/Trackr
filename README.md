@@ -5,4 +5,4 @@ This is a Chrome extension that lets you track the time you spend on various web
 
 **Link to Chrome extension:** <https://chrome.google.com/webstore/detail/trackr/pccehhnicffhgffhdfgainipddlopmie>.
 
-![Screenshot](https://lh6.googleusercontent.com/_debv1R_3ELujEwnQwh8bhv5sFENtVPadx8X2FxYWvdSNXGlevud_gJGtKjt5q9FUn8rLR3Ljfk=s640-h400-e365-rw)
+![Screenshot](https://raw.github.com/srikarg/Trackr/master/screenshot.png)
