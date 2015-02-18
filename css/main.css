@@ -13,8 +13,8 @@ html {
 }
 
 body {
-    font: 300 1.8rem/1.6875 sans-serif;
-    font: 300 18px/1.6875 sans-serif;
+    font: 400 1.8rem/1.6875 'Roboto', sans-serif;
+    font: 400 18px/1.6875 'Roboto', sans-serif;
     background: #222;
     color: #fff;
 }
@@ -30,7 +30,7 @@ ul, ol {
 }
 
 h1, h2, h3, h4, h5, h6 {
-    font-weight: 300;
+    font-weight: 400;
 }
 
 h1 {

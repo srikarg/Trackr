@@ -1,12 +1,16 @@
 {
     "name": "Trackr",
-    "version": "0.9",
+    "version": "1.0",
     "manifest_version": 2,
     "description": "Track the time you spend on various websites with beautiful graphs on the new tab page!",
     "icons": {
         "16": "icons/icon16.png",
         "48": "icons/icon48.png",
         "128": "icons/icon128.png"
+    },
+    "options_ui": {
+        "page": "options/options.html",
+        "chrome_style": false
     },
     "background": {
         "scripts": [

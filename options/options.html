@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Trackr Options</title>
+
+    <link href='http://fonts.googleapis.com/css?family=Roboto:400' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="../css/normalize.css">
+    <link rel="stylesheet" href="../css/skeleton.css">
+    <link rel="stylesheet" href="options.css">
+</head>
+<body>
+    <div class="container">
+        <h4>Blacklist</h4>
+        <p>Your list of host names for which Trackr will be disabled. One entry per line. Invalid host names will be silently ignored.</p>
+        <textarea id="blacklist" spellcheck="false"></textarea>
+
+        <button id="save">Save Options</button>
+    </div>
+
+    <script src="../js/jquery/jquery.min.js"></script>
+    <script src="options.js"></script>
+</body>
+</html>
