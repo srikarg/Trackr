@@ -77,8 +77,10 @@ chrome.runtime.onMessage.addListener(function(message, sender, sendResponse) {
         console.log('userActive\'s value is ' + message.userActive);
         userActive = message.userActive;
     } else {
-        console.log('Settings changed!');
-        getSettings();
+        if (message.settingsChanged) {
+            console.log('Settings changed!');
+            getSettings();
+        }
     }
 });
 

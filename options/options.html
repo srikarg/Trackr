@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <title>Trackr Options</title>
@@ -9,11 +10,27 @@
     <link rel="stylesheet" href="../css/skeleton.css">
     <link rel="stylesheet" href="options.css">
 </head>
+
 <body>
     <div class="container">
         <h4>Blacklist</h4>
         <p>Your list of host names for which Trackr will be disabled. One entry per line. Invalid host names will be silently ignored.</p>
         <textarea id="blacklist" spellcheck="false"></textarea>
+
+        <h4>Time Units</h4>
+        <p>Please choose the units you want for your time data.</p>
+        <label>
+            <input type="radio" name="time-units" id="hours">
+            <span class="label-body">Hours</span>
+        </label>
+        <label>
+            <input type="radio" name="time-units" id="minutes">
+            <span class="label-body">Minutes</span>
+        </label>
+        <label>
+            <input type="radio" name="time-units" id="seconds">
+            <span class="label-body">Seconds</span>
+        </label>
 
         <button id="save">Save Options</button>
     </div>
@@ -21,4 +38,5 @@
     <script src="../js/jquery/jquery.min.js"></script>
     <script src="options.js"></script>
 </body>
+
 </html>
