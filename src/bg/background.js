@@ -72,18 +72,6 @@ var updateURL = function() {
     }
 };
 
-chrome.runtime.onMessage.addListener(function(message, sender, sendResponse) {
-    if (sender.tab) {
-        console.log('userActive\'s value is ' + message.userActive);
-        userActive = message.userActive;
-    } else {
-        if (message.settingsChanged) {
-            console.log('Settings changed!');
-            getSettings();
-        }
-    }
-});
-
 var getSettings = function() {
     chrome.storage.sync.get('trackr_settings', function(data) {
         if (data.trackr_settings) {
@@ -121,6 +109,32 @@ var getCurrentTab = function() {
         }
     });
 };
+
+chrome.runtime.onMessage.addListener(function(message, sender, sendResponse) {
+    if (sender.tab) {
+        console.log('userActive\'s value is ' + message.userActive);
+        userActive = message.userActive;
+    } else {
+        if (message.settingsChanged) {
+            console.log('Settings changed!');
+            getSettings();
+        }
+    }
+});
+
+chrome.runtime.onInstalled.addListener(function(details) {
+    if (details.reason === 'install') {
+        chrome.storage.sync.get({
+            "trackr_settings": {
+                "blacklist": ['newtab', 'devtools', 'extensions'],
+                "time_units": "minutes"
+            }
+        }, function(data) {
+            chrome.storage.sync.set(data);
+            settings = data.trackr_settings;
+        });
+    }
+});
 
 getSettings();
 getCurrentTab();

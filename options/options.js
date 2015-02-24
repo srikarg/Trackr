@@ -17,13 +17,7 @@ var save_options = function() {
 
 restore_options = function() {
     var blacklist = $('#blacklist');
-    chrome.storage.sync.get({
-        "trackr_settings": {
-            "blacklist": ['newtab', 'devtools', 'extensions'],
-            "time_units": "minutes"
-        }
-    }, function(data) {
-        chrome.storage.sync.set(data);
+    chrome.storage.sync.get('trackr_settings', function(data) {
         data = data.trackr_settings;
 
         $.each(data.blacklist, function(i, v) {
