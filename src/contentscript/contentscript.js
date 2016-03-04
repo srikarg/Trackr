@@ -6,10 +6,10 @@ function setup() {
     this.addEventListener('mousemove', resetTimer, false);
     this.addEventListener('mousedown', resetTimer, false);
     this.addEventListener('keypress', resetTimer, false);
-    this.addEventListener('DOMMouseScroll', resetTimer, false);
-    this.addEventListener('mousewheel', resetTimer, false);
+    this.addEventListener('scroll', resetTimer, false);
+    this.addEventListener('wheel', resetTimer, false);
     this.addEventListener('touchmove', resetTimer, false);
-    this.addEventListener('MSPointerMove', resetTimer, false);
+    this.addEventListener('pointermove', resetTimer, false);
 
     startTimer();
 }

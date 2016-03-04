@@ -7,10 +7,11 @@ var settings = {};
 var getURL = function(url) {
     chrome.storage.local.get('trackr', function(data) {
         var index, found;
+        var hostname = new URL(url).hostname;
 
         if ($.isEmptyObject(data)) {
             currentTabInfo.id = '_' + Math.random().toString(36).substr(2, 9);
-            currentTabInfo.title = new URL(url).hostname;
+            currentTabInfo.title = hostname;
             currentTabInfo.time = 0;
             var obj = {
                 'trackr': [{
@@ -24,7 +25,7 @@ var getURL = function(url) {
         }
 
         $.each(data.trackr, function(i, v) {
-            if (v.title === new URL(url).hostname) {
+            if (v.title === hostname) {
                 index = i;
                 found = true;
                 return false;
@@ -38,7 +39,7 @@ var getURL = function(url) {
             currentTabInfo.time = retrieved.time;
         } else {
             currentTabInfo.id = '_' + Math.random().toString(36).substr(2, 9);
-            currentTabInfo.title = new URL(url).hostname;
+            currentTabInfo.title = hostname;
             currentTabInfo.time = 0;
 
             data.trackr.push({
