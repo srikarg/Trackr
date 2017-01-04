@@ -30,7 +30,7 @@ $(function() {
             animation: false,
             responsive: true,
             segmentShowStroke: false,
-            legendTemplate: '<table class=\"u-full-width <%=name.toLowerCase()%>-legend\"><thead><tr><th>Color</th><th>Title</th><th>Time (' + time_units + ')</th></tr></thead><% for (var i=0; i<segments.length; i++){%><tr><td><span class=\"color-box\" style=\"background-color:<%=segments[i].fillColor%>\"></span></td><td class=\"label\"><%if(segments[i].label){%><%=segments[i].label%><%}%></td><td class=\"value\"><%if(segments[i].value){%><%=segments[i].value%><%}%></td></tr><%}%></table>'
+            legendTemplate: '<table class=\"u-full-width <%=name.toLowerCase()%>-legend\"><thead><tr><th>Color</th><th>Title</th><th>Time (' + time_units + ')</th></tr></thead><% for (var i=0; i<segments.length; i++){%><tr><td><span class=\"color-box\" style=\"background-color:<%=segments[i].fillColor%>\"></span></td><td class=\"label\"><a href=\"http://<%=segments[i].label%>\" style=\"color:<%=segments[i].fillColor%>;text-decoration:none\"><%if(segments[i].label){%><%=segments[i].label%><%}%></a></td><td class=\"value\"><%if(segments[i].value){%><%=segments[i].value%><%}%></td></tr><%}%></table>'
         };
         var ctx = $('#chart').get(0).getContext('2d');
 
