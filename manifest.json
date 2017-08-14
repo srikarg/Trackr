@@ -20,15 +20,15 @@
         "persistent": true
     },
     "content_security_policy": "script-src 'self' 'unsafe-eval'; object-src 'self'",
-    "chrome_url_overrides": {
-        "newtab": "src/override/override.html"
-    },
     "content_scripts": [
         {
             "js": ["js/jquery/jquery.min.js", "src/contentscript/contentscript.js"],
             "matches": ["*://*/*"]
         }
     ],
+    "browser_action" : {
+        "default_popup": "src/override/override.html"
+    },
     "permissions": [
         "history",
         "tabs",
